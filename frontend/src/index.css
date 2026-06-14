@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-color: #F8FAFC;
+  --card-color: #FFFFFF;
+  --border-color: #E2E8F0;
+  --brand-color: #0F8A5F;
+  --text-primary: #0F172A;
+  --text-secondary: #1E293B;
+  --text-tertiary: #475569;
+  --text-quaternary: #64748B;
+  --bg-gradient-1: rgba(15, 138, 95, 0.03);
+  --bg-gradient-2: rgba(59, 130, 246, 0.03);
+}
+
+.dark {
+  --bg-color: #090514;
+  --card-color: #130D26;
+  --border-color: #251C45;
+  --brand-color: #A855F7;
+  --text-primary: #F8FAFC;
+  --text-secondary: #EDE9FE;
+  --text-tertiary: #CBD5E1;
+  --text-quaternary: #94A3B8;
+  --bg-gradient-1: rgba(168, 85, 247, 0.08);
+  --bg-gradient-2: rgba(236, 72, 153, 0.06);
+}
+
+@layer base {
+  body {
+    @apply bg-darkBg text-white font-sans antialiased min-h-screen;
+    background-image: 
+      radial-gradient(at 0% 0%, var(--bg-gradient-1) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, var(--bg-gradient-2) 0px, transparent 50%);
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--brand-color) 15%, transparent);
+    color: var(--brand-color);
+  }
+}
+
+/* Custom Utilities for High Fidelity Glassmorphic Dark UI */
+.glass-panel {
+  @apply bg-darkCard border shadow-sm rounded-2xl;
+  border-color: color-mix(in srgb, var(--border-color) 60%, transparent);
+}
+
+.glass-panel-hover {
+  @apply transition-all duration-300 hover:shadow-md;
+}
+.glass-panel-hover:hover {
+  border-color: color-mix(in srgb, var(--brand-color) 40%, transparent);
+  box-shadow: 0 4px 6px -1px color-mix(in srgb, var(--brand-color) 5%, transparent), 0 2px 4px -2px color-mix(in srgb, var(--brand-color) 5%, transparent);
+}
+
+.glass-input {
+  @apply bg-darkCard border text-white rounded-xl px-4 py-2.5 outline-none transition-all focus:ring-1 placeholder:text-gray-400;
+  border-color: var(--border-color);
+}
+.glass-input:focus {
+  border-color: var(--brand-color);
+  --tw-ring-color: color-mix(in srgb, var(--brand-color) 20%, transparent);
+}
+
+.glass-btn-primary {
+  @apply font-bold px-5 py-2.5 rounded-xl transition-all active:scale-95 disabled:opacity-50 disabled:pointer-events-none shadow-sm;
+  background-color: var(--brand-color);
+  color: #ffffff !important;
+  box-shadow: 0 1px 2px 0 color-mix(in srgb, var(--brand-color) 10%, transparent);
+}
+.glass-btn-primary:hover {
+  background-color: color-mix(in srgb, var(--brand-color) 95%, transparent);
+}
+
+.glass-btn-secondary {
+  @apply border text-gray-300 font-semibold px-5 py-2.5 rounded-xl transition-all active:scale-95 disabled:opacity-50 disabled:pointer-events-none;
+  background-color: var(--card-color);
+  border-color: var(--border-color);
+}
+.glass-btn-secondary:hover {
+  background-color: color-mix(in srgb, var(--border-color) 20%, transparent);
+}
+
+.glass-btn-danger {
+  @apply bg-rose-600 text-white font-semibold px-5 py-2.5 rounded-xl transition-all active:scale-95 disabled:opacity-50 disabled:pointer-events-none shadow-sm;
+  color: #ffffff !important;
+}
+.glass-btn-danger:hover {
+  background-color: #e11d48;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-darkBg;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-darkBorder rounded-full hover:bg-gray-700 transition-colors;
+}
+
+/* Animation Micro-Interactions */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s infinite ease-in-out;
+}

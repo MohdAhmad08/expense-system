@@ -1,0 +1,11 @@
+Date,Description,Amount,Currency,Paid By,Participants,Split Type,Is Settlement
+2026-06-10,Dinner party split,1200,INR,Alice,"Alice, Bob, Charlie",EQUAL,No
+2026-06-10,Dinner party split,1200,INR,Alice,"Alice, Bob, Charlie",EQUAL,No
+2026-06-11,Refund from merchant,-300,INR,Bob,"Alice, Bob",EQUAL,No
+2026-06-11,Snacks purchase,600,,Alice,"Alice, Bob, Charlie",EQUAL,No
+12/06/2026,Internet subscription,900,INR,Charlie,"Alice, Bob, Charlie",EQUAL,No
+2026-06-12,UPI transfer Alice to Bob,500,INR,Alice,"Bob",EQUAL,Yes
+2026-06-13,Gas bill payment,1000,INR,David,"Alice, Bob, David",EQUAL,No
+2026-06-14,T-shirt purchase,1000,INR,Alice,"Alice:40, Bob:50",PERCENT,No
+2026-06-14,Zero value sample,0,INR,Bob,"Alice, Bob",EQUAL,No
+2026-06-15,Violation expense,800,INR,Charlie,"Alice, Charlie",EQUAL,No
